@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="<%= pdetails.posttype %>" method="post" id="Form">
+        <div>Item <input type="text" name="Item" value="<%= pdetails.Item %>" disabled id="pitem"></div>
+        <div>Party Address <input type="text" name="Address" value="<%= pdetails.address %>" disabled id="padd"></div>
+        <div>Party Pincode <input type="text" name="pincode" value="<%= pdetails.pincode %>" disabled id="ppincode"></div>
+        <div>Party State <input type="text" name="state" value="<%= pdetails.state %>" disabled id="pstate"></div>
+        <div>Basic Order Terms <input type="text" name="BOT"></div> 
+        <div>Date <input type="date" name="Date" id=""></div>
+        <div>Party GST No. <input type="text" name="PGST" value="<%= pdetails.gstin %>" disabled id="pgst"></div>
+        <div>Place of Supplye <input type="text" name="POS"></div>
+        <div>Party Name <input type="text" name="PName" value="<%= pdetails.Name %>" disabled id="pname"></div>
+        <div>Shipped By <input type="text" name="Sby"></div>
+        <div>Basic Order ref <input type="text" name="BOR"></div>
+        <div>Vessel No <input type="text" name="Vslno"></div>
+        <div>Due Date <input type="text" name="DueD"></div>
+        <div>Buyer Pin <input type="text" name="BuyPin" value="<%= pdetails.incometaxno %>" disabled id="pinc"></div>
+        <div>Rate <input type="number" name="Rate" id="Rate" oninput="getamount()"></div>
+        <div>Quantity <input type="number" name="Quantity" id="Quantity" oninput="getamount()"></div>
+        <div>Amount <input type="number" name="Amount" id="Amount"></div>
+        <div>Godown <input type="text" name="Godown"></div>
+        <div><input type="button" value="submit" onclick="onsub()">submit</div>
+    </form>
+    <script>
+        function getamount(){
+            const rate=document.getElementById('Rate');
+            const Quantity=document.getElementById('Quantity');
+            const Amount=document.getElementById('Amount');
+            Amount.value = ((Quantity.value)*(rate.value));
+        }
+        function onsub(){
+            document.getElementById('padd').disabled=false;
+            document.getElementById('ppincode').disabled=false;
+            document.getElementById('pstate').disabled=false;
+            document.getElementById('pgst').disabled=false;
+            document.getElementById('pname').disabled=false;
+            document.getElementById('pinc').disabled=false;
+            document.getElementById('pitem').disabled=false;
+            document.getElementById('Form').submit();
+        }
+    </script>
+</body>
+</html>

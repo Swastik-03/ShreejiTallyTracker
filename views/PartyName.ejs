@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search{
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="input">
+        <form action="<%= datap.posttype %>" method="post">
+        <div>
+        Party Name : <input type="text" name="partyname" id="partyinp">
+        </div>
+        <div id="search">
+        </div>
+        <div>
+            Item: <select name="Item" id="item">
+                <% for(let i = 0; i< datap.Items.length ; i++){ %>
+                <option value="<%= datap.Items[i] %>"> <%= datap.Items[i] %> </option>
+                <% } %>
+            </select>
+            </div>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    <script>
+        var partyinput = document.getElementById('partyinp');
+        var search = document.getElementById('search');
+        // console.log(<%= datap.Items %>);
+        // search.style.display="none";
+        var pNames = <%- JSON.stringify(datap.ledgerNames) %>;
+        console.log(Array.isArray(pNames));
+        partyinput.addEventListener('keyup',function() {
+            search.style.display="block";
+            var inputText = partyinput.value.toLowerCase();
+            var filteredNames = pNames.filter(name => {
+                return name.toLowerCase().includes(inputText);
+            });
+            search.innerHTML='';
+            filteredNames.forEach((name,index)=>{
+                var li = document.createElement('li');
+                li.setAttribute("id",`li${index}`);
+                li.addEventListener('click',()=>{
+                    partyinput.value=li.innerText;
+                    search.style.display="none";
+                })
+                li.textContent = name;
+                search.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

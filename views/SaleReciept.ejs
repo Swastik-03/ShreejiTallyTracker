@@ -1,0 +1,444 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Order Voucher Display</title>
+    <meta name="author" content="swast" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-indent: 0;
+        }
+
+        h1 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        .s1 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        .s2 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
+
+        .s3 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9.5pt;
+        }
+
+        .s4 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+
+        .s5 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s6 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+
+        .s7 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12pt;
+        }
+
+        .s9 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 9pt;
+        }
+        .s10 {
+            display: flex;
+            flex-direction: row;
+        }
+        p {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9pt;
+            margin: 0pt;
+        }
+        .bottom{
+            color: black;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 9pt;
+            margin: 0pt;
+            display: flex;
+            justify-content: space-between;
+        }
+        table,
+        tbody {
+            vertical-align: top;
+            overflow: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="padding-top: 3pt;text-indent: 0pt;text-align: center;"><%= detail.order %></h1>
+    <p style="text-indent: 0pt;text-align: left;"><br /></p>
+    <table style="border-collapse:collapse;margin:auto" cellspacing="0">
+        <tr style="height:26pt">
+            <td style="width:236pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3" rowspan="4">
+                <p class="s2" style="padding-left: 2pt;text-indent: 0pt;text-align: left;" id="Invoiceto">Invoice To</p>
+                <p class="s1" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><%= detail.companydetails.Name %></p>
+                <p class="s2" style="padding-left: 2pt;text-indent: 0pt;text-align: left;"><%= detail.companydetails.address[0] %><br><%= detail.companydetails.address[1] %></p>
+                <p class="s2" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">GSTIN/UIN: 23ABGCS3840J1ZB
+                </p>
+                <p class="s2" style="padding-left: 2pt;padding-right: 29pt;text-indent: 0pt;text-align: left;">State Name : <%= detail.companydetails.state %>, Code : <%= detail.companydetails.stateCode %><br>CIN: U52100MP2021PTC056586</p>
+                <p style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;"><a
+                        href="mailto:<%= detail.companydetails.email %>" class="s3" target="_blank">E-Mail : <%= detail.companydetails.email %></a></p>
+            </td>
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s4" style="padding-left: 4pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Voucher No.
+                </p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 4pt;text-indent: 0pt;line-height: 11pt;text-align: left;"><%= detail.vouchNo %>
+                </p>
+            </td>
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Dated</p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                    <%= detail.Date %></p>
+            </td>
+        </tr>
+        <tr style="height:26pt">
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Mode/Terms
+                    of Payment</p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;"><%= detail.DueD %>
+                    Days</p>
+            </td>
+        </tr>
+        <tr style="height:26pt">
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s4" style="padding-left: 4pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Buyer&#39;s
+                    Ref./Order No.</p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 4pt;text-indent: 0pt;line-height: 11pt;text-align: left;"><%= detail.vouchNo %>
+                </p>
+            </td>
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Other
+                    References</p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                    <%= detail.BOR %></p>
+            </td>
+        </tr>
+        <tr style="height:5pt">
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3" rowspan="2">
+                <p class="s4" style="padding-left: 4pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Dispatched
+                    through</p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 4pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                    <%= detail.Sby %></p>
+            </td>
+            <td style="width:116pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="2" rowspan="2">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Destination
+                </p>
+                <p class="s1"
+                    style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                    <%= detail.partydetail.state %></p>
+            </td>
+        </tr>
+        <tr style="height:22pt">
+            <td style="width:236pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3" rowspan="2">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Consignee
+                    (Ship to)</p>
+                <p class="s1" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><%= detail.Consigneedetail.PName %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;"><%= detail.Consigneedetail.Address %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">GSTIN/UIN :
+                    <%= detail.Consigneedetail.PGST %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">State Name
+                    : <%= detail.Consigneedetail.state %>, Code : <%= detail.Consigneedetail.stateCode %></p>
+            </td>
+        </tr>
+        <tr style="height:84pt">
+            <td style="width:232pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="5" rowspan="2">
+                <p class="s4" style="padding-left: 4pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Terms of
+                    Delivery</p>
+                <p class="s1" style="padding-top: 2pt;padding-left: 4pt;text-indent: 0pt;text-align: left;"><%= detail.BOT %></p>
+            </td>
+        </tr>
+        <tr style="height:106pt">
+            <td style="width:236pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p class="s4" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;"><%= detail.bill %></p>
+                <p class="s1" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><%= detail.partydetail.PName %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;"><%= detail.partydetail.Address %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">GSTIN/UIN :
+                    <%= detail.partydetail.PGST %></p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">State Name
+                    : <%= detail.partydetail.state %>, Code : <%= detail.partydetail.stateCode %></p>
+            </td>
+        </tr>
+        <tr style="height:24pt">
+            <td
+                style="width:14pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">Sl</p>
+                <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">No.</p>
+            </td>
+            <td
+                style="width:175pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-left: 42pt;text-indent: 0pt;line-height: 10pt;text-align: left;">
+                    Description of Goods</p>
+            </td>
+            <td
+                style="width:47pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-left: 4pt;text-indent: 0pt;line-height: 10pt;text-align: left;">HSN/SAC</p>
+            </td>
+            <td
+                style="width:44pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4"
+                    style="padding-left: 2pt;padding-right: 1pt;text-indent: 0pt;line-height: 10pt;text-align: center;">
+                    Due on</p>
+            </td>
+            <td
+                style="width:48pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="text-indent: 0pt;line-height: 10pt;text-align: center;">Quantity</p>
+            </td>
+            <td
+                style="width:49pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-left: 14pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Rate</p>
+            </td>
+            <td
+                style="width:21pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4"
+                    style="padding-left: 1pt;padding-right: 1pt;text-indent: 0pt;line-height: 10pt;text-align: center;">
+                    per</p>
+            </td>
+            <td
+                style="width:70pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="text-indent: 0pt;line-height: 10pt;text-align: center;">Amount</p>
+            </td>
+        </tr>
+        <tr style="height:113pt">
+            <td
+                style="width:14pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s5" style="padding-top: 5pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">1</p>
+            </td>
+            <td
+                style="width:175pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s1" style="padding-top: 5pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><span id="IName"><%= detail.Item.Name %></span>
+                </p>
+            </td>
+            <td
+                style="width:47pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-top: 5pt;padding-left: 2pt;text-indent: 0pt;text-align: left;"><span id="IHSN"><%= detail.Item.HSN %></span></p>
+            </td>
+            <td
+                style="width:44pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s6"
+                    style="padding-top: 5pt;padding-left: 4pt;padding-right: 1pt;text-indent: 0pt;text-align: center;">
+                    <%= detail.DueD %> Days</p>
+            </td>
+            <td
+                style="width:55pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s1" style="padding-top: 5pt;text-indent: 0pt;text-align: center;">
+                    <span id="IQuantity"></span></p>
+            </td>
+            <td
+                style="width:49pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-top: 5pt;padding-left: 5pt;text-indent: 0pt;text-align: left;"><span id="IRate"><%= detail.Rate %></span>
+                </p>
+            </td>
+            <td
+                style="width:21pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4"
+                    style="padding-top: 5pt;padding-left: 5pt;padding-right: 1pt;text-indent: 0pt;text-align: center;">
+                    <%= detail.Item.unit %></p>
+            </td>
+            <td
+                style="width:70pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s1" style="padding-top: 5pt;padding-left: 1pt;text-indent: 0pt;text-align: center;">
+                    <span id="DAmount"><%= detail.Amount %></span></p>
+            </td>
+        </tr>
+        <tr style="height:15pt">
+            <td
+                style="width:14pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:175pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s4" style="padding-right: 1pt;text-indent: 0pt;line-height: 10pt;text-align: right;">Total</p>
+            </td>
+            <td
+                style="width:47pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:44pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:50pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s1" style="text-indent: 0pt;line-height: 11pt;text-align: center;">
+                    <span id="IQuantity2"></span></p>
+            </td>
+            <td
+                style="width:49pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:21pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td
+                style="width:70pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                <p class="s7" style="padding-left: 1pt;text-indent: 0pt;line-height: 13pt;text-align: center;">₹
+                    <span id="DAmount2"><%= detail.Amount %></span></p>
+            </td>
+        </tr>
+        <tr style="height:159pt">
+            <td style="width:468pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="8">
+                <p class="s4 s10" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">
+                   <DIV class="bottom">
+                    <div>
+                        Amount Chargeable (in words)
+                    </div>
+                    <div>
+                        <i>E. &amp; O.E</i>
+                    </div>
+                   
+                   </DIV> 
+                <p class="s9" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">INR <%= detail.amountwords %></p>
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <div style="height: 130px;"></div>
+                <p class="s4" style="padding-top: 6pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">
+                    Company&#39;s PAN : <b><%= detail.companydetails.incometaxno %></b></p>
+            </td>
+        </tr>
+        <tr style="height:43pt">
+            <td style="width:236pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="3">
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            </td>
+            <td style="width:232pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
+                colspan="5">
+                <p class="s9" style="padding-right: 3pt;text-indent: 0pt;line-height: 10pt;text-align: right;">for
+                    Shreeji Ingredients Pvt.Ltd.</p>
+                <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                <p class="s4" style="padding-right: 1pt;text-indent: 0pt;line-height: 9pt;text-align: right;">Authorised
+                    Signatory</p>
+            </td>
+        </tr>
+    </table>
+
+    <p style="padding-top: 5pt;text-indent: 0pt;text-align: center;">This is a Computer (Web) Generated
+        Document</p>
+</body>
+<script>
+    const order="<%= detail.order %>";
+    if(order == "SALES ORDER"){
+        document.getElementById("Invoiceto").style.display="none";
+    }
+function printAndRedirect() {
+  // Print the current page
+  window.print();
+
+  // Delay the page reload for a few seconds (e.g., 3 seconds)
+  setTimeout(function() {
+    // Redirect to another page after printing
+    window.location.href = "./partysale";
+  }, 3000); // Adjust the delay as needed (in milliseconds)
+}
+printAndRedirect();
+    // 
+    const quantity=parseInt("<%= detail.Quantity %>");
+    const rate =parseInt("<%= detail.Rate %>");
+    const amount =parseInt("<%= detail.Amount %>");
+    document.getElementById('IQuantity').innerHTML = quantity.toLocaleString('en-IN', {
+    minimumFractionDigits: 4
+})+' <%= detail.Item.unit %>';
+document.getElementById('IQuantity2').innerHTML = quantity.toLocaleString('en-IN', {
+    minimumFractionDigits: 4
+})+' <%= detail.Item.unit %>';
+document.getElementById('IRate').innerHTML = rate.toLocaleString('en-IN', {
+    minimumFractionDigits: 2
+})
+document.getElementById('DAmount').innerHTML = amount.toLocaleString('en-IN', {
+    minimumFractionDigits: 2
+})
+document.getElementById('DAmount2').innerHTML = amount.toLocaleString('en-IN', {
+    minimumFractionDigits: 2
+})
+// console.log("<%= detail.Consigneedetail.Address %>");
+    // console.log(quantity);
+    // console.log(rate);
+    // console.log(amount);
+    // console.log(typeof(quantity));
+    // console.log(typeof(rate));
+    // console.log(typeof(amount));
+
+</script>
+</html>
