@@ -1,6 +1,6 @@
 const request = require("request");
 const xml2js = require('xml2js');
-function CreatePurchaseOrder(Address,BOT,Date,PGST,POS,PName,Sby,BOR,Vslno,DueD,BuyPin,Rate,Quantity,Amount,Godown,vouchN,guid,Item,companydetails){
+function CreatePurchaseOrder(Address,BOT,Date,PGST,POS,PName,Sby,BOR,Vslno,DueD,BuyPin,Rate,Quantity,Amount,Godown,vouchN,guid,Item,companydetails,state){
  return new Promise((resolve, reject)=>{
     let bodyX=`<ENVELOPE>
     <HEADER>
@@ -35,7 +35,7 @@ function CreatePurchaseOrder(Address,BOT,Date,PGST,POS,PName,Sby,BOR,Vslno,DueD,
          <GUID>${guid}</GUID>
          <GSTREGISTRATIONTYPE>Regular</GSTREGISTRATIONTYPE>
          <VATDEALERTYPE>Regular</VATDEALERTYPE>
-         <STATENAME>${companydetails.state}</STATENAME>
+         <STATENAME>${state}</STATENAME>
          <VOUCHERTYPENAME>Purchase Order</VOUCHERTYPENAME>
          <COUNTRYOFRESIDENCE>India</COUNTRYOFRESIDENCE>
          <PARTYGSTIN>${PGST}</PARTYGSTIN>

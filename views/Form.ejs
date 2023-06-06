@@ -1,32 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="<%= pdetails.posttype %>" method="post" id="Form">
+<%- include("home") %>
+<style>
+    .form2{
+        /* height: 80vh; */
+            border-radius: 15px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background-color: #654c02;
+            color: rgb(255, 255, 255);
+            font-family: 'Ubuntu', sans-serif;
+            /* font-size: 2em; */
+            text-align: center;
+            box-shadow: -0.97vw 2.78vh #C07F00 ;
+            width:95vw;
+            margin:auto;
+            margin-top: 13px;
+            margin-bottom: 30px;
+            overflow-x: scroll;
+    }
+    input{
+            /* height: 5vh; */
+           
+            border-radius: 30px;
+            text-align: center;
+            font-family:'Ubuntu', sans-serif;
+            font-size: 20px;
+            color:#654c02;
+            /* width: 25em; */
+            /* max-width: 90vw; */
+            margin-top:1em;
+            margin-bottom: 0.5em;
+        }
+        .formgrp{
+            display: flex;
+            width:95vw;
+            justify-content: space-evenly;
+            flex-wrap:wrap;
+        }
+        button{
+            height: 7vh;
+            border-radius: 30px;
+            border-radius: 30px;
+            text-align: center;
+            font-family:'Ubuntu', sans-serif;
+            font-size: 20px;
+            color:#654c02;
+            width: 5em;
+            margin: 1em;
+        }
+        button:hover{
+            text-decoration: underline;
+        }
+        button:active{
+            /* background-color: #C07F00; */
+            height:7.5vh;
+            width:5.5em;
+        }
+</style>
+    <form action="<%= pdetails.posttype %>" method="post" id="Form" class="form2">
+        <div class="formgrp">
+        <div>Party Name <input type="text" name="PName" value="<%= pdetails.Name %>" disabled id="pname"></div>
         <div>Item <input type="text" name="Item" value="<%= pdetails.Item %>" disabled id="pitem"></div>
         <div>Party Address <input type="text" name="Address" value="<%= pdetails.address %>" disabled id="padd"></div>
+       </div>
+        <div class="formgrp">
         <div>Party Pincode <input type="text" name="pincode" value="<%= pdetails.pincode %>" disabled id="ppincode"></div>
         <div>Party State <input type="text" name="state" value="<%= pdetails.state %>" disabled id="pstate"></div>
-        <div>Basic Order Terms <input type="text" name="BOT"></div> 
-        <div>Date <input type="date" name="Date" id=""></div>
         <div>Party GST No. <input type="text" name="PGST" value="<%= pdetails.gstin %>" disabled id="pgst"></div>
+        </div>
+        <div class="formgrp">
+        <div>Date <input type="date" name="Date" id=""></div>
+        <div>Godown <input type="text" name="Godown"></div>
         <div>Place of Supplye <input type="text" name="POS"></div>
-        <div>Party Name <input type="text" name="PName" value="<%= pdetails.Name %>" disabled id="pname"></div>
+        </div>
+        <div class="formgrp">
+        <div>Basic Order Terms <input type="text" name="BOT"></div> 
         <div>Shipped By <input type="text" name="Sby"></div>
         <div>Basic Order ref <input type="text" name="BOR"></div>
+        </div>
+        <div class="formgrp">
         <div>Vessel No <input type="text" name="Vslno"></div>
         <div>Due Date <input type="text" name="DueD"></div>
         <div>Buyer Pin <input type="text" name="BuyPin" value="<%= pdetails.incometaxno %>" disabled id="pinc"></div>
-        <div>Rate <input type="number" name="Rate" id="Rate" oninput="getamount()"></div>
-        <div>Quantity <input type="number" name="Quantity" id="Quantity" oninput="getamount()"></div>
+        </div>
+        <div class="formgrp">
+        <div>Rate (Per MT) <input type="number" name="Rate" id="Rate" oninput="getamount()"></div>
+        <div>Quantity (in MT) <input type="number" name="Quantity" id="Quantity" oninput="getamount()"></div>
         <div>Amount <input type="number" name="Amount" id="Amount"></div>
-        <div>Godown <input type="text" name="Godown"></div>
-        <div><input type="button" value="submit" onclick="onsub()">submit</div>
+        </div>
+        <div>
+        <button onclick="onsub()">Submit</button>
+            <!-- <input type="button" value="submit" onclick="onsub()"></div> -->
     </form>
     <script>
         function getamount(){

@@ -39,10 +39,26 @@ app.get('/',(req,res)=>{
   res.render('login.ejs');
 })
 
-app.get('/ViewOrder',async(req,res)=>{
+app.get('/Home',(req,res)=>{
+  res.render('Home.ejs');
+})
+
+app.get('/ViewPurOrder',async(req,res)=>{
   try{
     const p= await getReport('HTML','Purchase Order');
-    res.end(p);
+    np=p.split(`<BODY`)[1];
+    // console.log(np);
+    res.render('vieworder.ejs',{np});
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+app.get('/ViewSalesOrder',async(req,res)=>{
+  try{
+    const p= await getReport('HTML','Sales Order');
+    np=p.split(`<BODY`)[1];
+    // console.log(np);
+    res.render('vieworder.ejs',{np});
   } catch (err) {
     console.log(err.message);
   }
@@ -86,7 +102,7 @@ app.post('/FormP', async (req, res) => {
   console.log(vouchN);
   console.log(companydetails);
 
-  const result = await CreatePurchaseOrder(Address,BOT,Date,PGST,POS,PName,Sby,BOR,Vslno,DueD,BuyPin,Rate,Quantity,Amount,Godown,parseInt(vouchN)+1,guid,Item,companydetails);
+  const result = await CreatePurchaseOrder(Address,BOT,Date,PGST,POS,PName,Sby,BOR,Vslno,DueD,BuyPin,Rate,Quantity,Amount,Godown,parseInt(vouchN)+1,guid,Item,companydetails,state);
   console.log('Created = ' + result.CREATED[0]);
   if(result.CREATED[0]== 1){
     const partydetail={Address : Address, PGST : PGST ,PName : PName ,BuyPin : BuyPin ,state : state, pincode : pincode ,stateCode : stateCode }

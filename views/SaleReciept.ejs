@@ -204,7 +204,11 @@
                 </p>
                 <p class="s1"
                     style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
-                    <%= detail.partydetail.state %></p>
+                    <% if( detail.order == "PURCHASE ORDER" ){ %>
+                        <%= detail.POS %>
+                    <% } else{ %>
+                    <%= detail.partydetail.state %>
+                   <% } %></p>
             </td>
         </tr>
         <tr style="height:22pt">
@@ -409,7 +413,7 @@ function printAndRedirect() {
   // Delay the page reload for a few seconds (e.g., 3 seconds)
   setTimeout(function() {
     // Redirect to another page after printing
-    window.location.href = "./partysale";
+    window.location.href = "./Home";
   }, 3000); // Adjust the delay as needed (in milliseconds)
 }
 printAndRedirect();

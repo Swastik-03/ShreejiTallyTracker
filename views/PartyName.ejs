@@ -1,27 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<%- include("home") %>
     <style>
         #search{
             max-height: 200px;
             overflow-y: scroll;
+            background-color: whitesmoke;
+            color:black;
+            font-size: 15px;
+            margin-left: 12.5em;
+            width:34em;
+            border-radius: 10px;
+        }
+        .formp{
+            height: 80vh;
+            border-radius: 15px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background-color: #654c02;
+            color: rgb(255, 255, 255);
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 2em;
+            text-align: center;
+            box-shadow: -0.97vw 2.78vh #C07F00 ;
+            width:95vw;
+            margin:auto;
+            margin-top: 13px;
+        }
+        input{
+            height: 5vh;
+           
+            border-radius: 30px;
+            text-align: center;
+            font-family:'Ubuntu', sans-serif;
+            font-size: 20px;
+            color:#654c02;
+            width: 25em;
+            max-width: 90vw;
+            margin-top:1em;
+            margin-bottom: 0.5em;
+        }
+        button{
+            height: 7vh;
+            border-radius: 30px;
+            border-radius: 30px;
+            text-align: center;
+            font-family:'Ubuntu', sans-serif;
+            font-size: 20px;
+            color:#654c02;
+            width: 5em;
+            margin: 1em;
+        }
+        button:hover{
+            text-decoration: underline;
+        }
+        button:active{
+            /* background-color: #C07F00; */
+            height:7.5vh;
+            width:5.5em;
+        }
+        ::placeholder{
+            text-align: center;
+            font-family:'Ubuntu', sans-serif;
+            font-size: 20px;
+            color:#654c02;
+
+        }
+        select{
+            height: 5vh;
+           
+           border-radius: 30px;
+           text-align: center;
+           font-family:'Ubuntu', sans-serif;
+           font-size: 20px;
+           color:#654c02;
+           max-width: 90vw;
+           margin-top:1em;
+           margin-bottom: 0.5em;
+        }
+        option{
+            font-size: 10px;
+            color:black;
         }
     </style>
-</head>
-<body>
     <div class="input">
-        <form action="<%= datap.posttype %>" method="post">
+        <form action="<%= datap.posttype %>" method="post" class="formp">
         <div>
-        Party Name : <input type="text" name="partyname" id="partyinp">
+        Party Name : <input type="text" name="partyname" id="partyinp" required>
         </div>
         <div id="search">
         </div>
         <div>
-            Item: <select name="Item" id="item">
+            Item: <select name="Item" id="item" required>
                 <% for(let i = 0; i< datap.Items.length ; i++){ %>
                 <option value="<%= datap.Items[i] %>"> <%= datap.Items[i] %> </option>
                 <% } %>
@@ -53,6 +123,7 @@
                 })
                 li.textContent = name;
                 search.appendChild(li);
+                // search.innerHTML+='<hr>';
             });
         });
     </script>
